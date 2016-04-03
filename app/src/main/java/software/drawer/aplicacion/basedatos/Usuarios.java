@@ -1,9 +1,11 @@
 package software.drawer.aplicacion.basedatos;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,7 +29,9 @@ public class Usuarios extends AppCompatActivity {
         Cursor fila = bd.rawQuery(  //devuelve 0 o 1 fila //es una consulta
                 "select nombre from votantes", null);
         if (fila.moveToNext()) {  //si ha devuelto 1 fila, vamos al primero (que es el unico)
-            datos = new String[]{fila.getString(0)};
+            datos = new String[]{
+                    fila.getString(0)
+            };
 
         } else
             Toast.makeText(this, "No existe una persona con dicho dni" ,
@@ -47,8 +51,28 @@ public class Usuarios extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "posicion " + (i + 1) + finalDatos[i], Toast.LENGTH_SHORT).show();
             }
         });
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_sesion) {
+            Intent i = new Intent(this, Login.class );
+            startActivity(i);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }
