@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="dni"
+        android:text="Origen"
         android:id="@+id/textView" />
 
     <EditText
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="nombre y apellido"
+        android:text="Destino"
         android:id="@+id/textView2" />
 
     <EditText
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="nombre del colegio"
+        android:text="Capacidad"
         android:id="@+id/textView3" />
 
     <EditText
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="numero de mesa"
+        android:text="FEcha"
         android:id="@+id/textView4" />
 
     <EditText
@@ -80,8 +80,7 @@
             android:text="Alta"
             android:id="@+id/btn_alta"
             android:onClick="alta"
-            android:layout_weight="1"
-            android:background="#99ff96" />
+            android:layout_weight="1" />
 
         <Button
             android:layout_width="0dp"
@@ -127,14 +126,6 @@
             android:text="Usuarios registrados"
             android:id="@+id/button3"
             android:onClick="registros"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Ofertas"
-            android:id="@+id/button4"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1" />
     </LinearLayout>
 
