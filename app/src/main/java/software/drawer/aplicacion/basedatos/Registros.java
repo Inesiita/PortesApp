@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-public class MyActivity extends Activity {
+public class Registros extends Activity {
 
     private EditText et1, et2, et3, et4;
     private Cursor fila;
@@ -22,7 +22,7 @@ public class MyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.activity_registros);
 
         et1 = (EditText) findViewById(R.id.et_dni);
         et2 = (EditText) findViewById(R.id.et_nombreyapellido);
@@ -31,16 +31,11 @@ public class MyActivity extends Activity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyActivity.this, Usuarios.class));
-            }
-        });
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyActivity.this, Registros.class));
+                startActivity(new Intent(Registros.this, Usuarios.class));
             }
         });
 
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -52,12 +47,12 @@ public class MyActivity extends Activity {
         String nombre = et2.getText().toString();
         String colegio = et3.getText().toString();
         String nromesa = et4.getText().toString();
-        ContentValues registro = new ContentValues();  //es una clase para guardar datos
-        registro.put("dni", dni);
-        registro.put("nombre", nombre);
-        registro.put("colegio", colegio);
-        registro.put("nromesa", nromesa);
-        bd.insert("votantes", null, registro);
+        ContentValues ofertas = new ContentValues();  //es una clase para guardar datos
+        ofertas.put("origen", dni);
+        ofertas.put("destino", nombre);
+        ofertas.put("capacidad", colegio);
+        ofertas.put("fecha", nromesa);
+        bd.insert("ofertas", null, ofertas);
         bd.close();
         et1.setText("");
         et2.setText("");
